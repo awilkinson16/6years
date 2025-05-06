@@ -1,46 +1,94 @@
-body {
-    height: 100%;
-    margin: 0;
-    /* overflow: auto; */
-    background-color: #ffe6e6;
-    position: relative;
-    z-index: 1;
-  }
-
-.background-layer {
-    position: fixed; /* Covers the entire viewport */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ffe6e6; /* Light pink background */
-    z-index: -2; /* Places it behind the canvas */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #ffe6e6;
+  position: relative;
+  z-index: 1;
 }
 
-  canvas {
-    position: fixed; /* Ensures the canvas stays in place */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Places the canvas behind all other elements */
-  }
-  
-  .navbar {
-    z-index: 1; /* Ensures the navbar stays above the canvas */
-  }
-  
-  .center-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-shadow: 2px 2px 4px #000;
-    text-align: center;
-  }
+/* Background */
+.background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffe6e6;
+  z-index: -2;
+  pointer-events: none; /* Prevent background from blocking interactions */
+}
 
-  .carousel-inner img {
-    max-height: 80vh; /* Limit the height to 80% of the viewport */
-    object-fit: contain; /* Ensure the image scales proportionally */
+/* Canvas stays behind everything */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure canvas is behind everything */
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Navbar stays above background and canvas */
+.navbar {
+  position: relative;
+  z-index: 3; /* Ensure navbar is on top of everything */
+}
+
+/* Centered text on homepage */
+.center-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 20px; /* leave room for navbar */
+  color: white;
+  text-shadow: 2px 2px 4px #000;
+  text-align: center;
+  z-index: 2; /* Ensure text is above background but below navbar */
+}
+
+.carousel-inner img {
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+h1, p {
+  word-wrap: break-word;
+}
+
+.navbar-collapse {
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .center-text {
+    font-size: 1.5rem;
   }
+  .carousel-inner img {
+    max-height: 60vh;
+  }
+  .row > div {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .center-text {
+    font-size: 1.2rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .carousel-inner img {
+    max-height: 50vh;
+  }
+}

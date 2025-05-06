@@ -53,3 +53,12 @@ heartImage.onload = () => {
   init();
   animate();
 };
+
+
+
+
+  // Responsive canvas resize for mobile support
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
