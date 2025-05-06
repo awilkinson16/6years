@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Anniversary</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
+</head>
+
+<body>
+  <div class="background-layer">
+  <canvas id="fallingHearts"></canvas> <!-- Canvas for falling hearts -->
+  <div id="navbar"></div> <!-- Placeholder for the navbar -->
+
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Things We Love About Each Other</h1>
+    <div class="row">
+      <div class="col-md-6" style="background-color: rgba(237, 139, 139, 0.25); padding: 15px; border-radius: 10px;">
+        <h3>I love about you</h3>
+        <ul class="list-group">
+          <li class="list-group-item">Your smile</li>
+          <li class="list-group-item">Your hugs</li>
+          <li class="list-group-item">Your patience</li>
+          <li class="list-group-item">Your kindness</li>
+          <li class="list-group-item">Your sense of humor</li>
+          <li class="list-group-item">Your creativity</li>
+          <li class="list-group-item">Your intelligence</li>
+          <li class="list-group-item">Your adventurous spirit</li>
+          <li class="list-group-item">Your ability to listen</li>
+          <li class="list-group-item">Your unwavering support</li>
+          <li class="list-group-item">Your beautiful eyes</li>
+          <li class="list-group-item">Your caring nature</li>
+        </ul>
+      </div>
+      <div class="col-md-6" style="background-color: rgba(0, 74, 221, 0.25); padding: 15px; border-radius: 10px;">
+        <h3>You love about me</h3>
+        <ul class="list-group">
+          <li class="list-group-item">My jokes</li>
+          <li class="list-group-item">How I always support you</li>
+          <li class="list-group-item">How I make you feel safe</li>
+          <li class="list-group-item">My cooking skills</li>
+          <li class="list-group-item">My determination</li>
+          <li class="list-group-item">How I always listen to you</li>
+          <li class="list-group-item">My sense of adventure</li>
+          <li class="list-group-item">How I make you laugh</li>
+          <li class="list-group-item">My honesty</li>
+          <li class="list-group-item">My ability to stay calm under pressure</li>
+          <li class="list-group-item">How I encourage you to follow your dreams</li>
+        </ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script> <!-- Link to the falling hearts script -->
+  <script>
+    // Load the navbar dynamically
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar').innerHTML = data;
+      });
+  </script>
+</body>
+</html>
